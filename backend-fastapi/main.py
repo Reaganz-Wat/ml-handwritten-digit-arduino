@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from model import predict_digit
 from typing import Union
 from PIL import Image
+from send_to_arduino import send_to_arduino
 
 
 app = FastAPI(title="MNIST Digit Classifier API")
@@ -32,4 +33,18 @@ def read_item(item_id: int, q: Union[str, None] = None):
 async def predict(file: UploadFile = File(...)):
     image = Image.open(file.file)
     result = predict_digit(image)
+
+    # Send prediction to Arduino LCD
+    try:
+        send_to_arduino(result["digit"], result["confidence"])
+    except Exception as e:
+        print(f"Failed to send to Arduino: {e}")
+        # Don't fail the request if Arduino communication fails
+
     return result
+
+@app.get("/test")
+async def testArduino():
+    return {
+        "prediction": 8
+    }
