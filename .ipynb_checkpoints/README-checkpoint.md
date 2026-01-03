@@ -1,0 +1,2 @@
+# ml-handwritten-digit-arduino
+A full-stack project that recognizes handwritten digits drawn in a React frontend using a Keras MNIST model, sends predictions via FastAPI to both the frontend and an Arduino LCD display, with optional Bluetooth support.
