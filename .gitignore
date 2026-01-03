@@ -1,0 +1,49 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Dataset files (too large for git)
+*.csv
+*.zip
+*.tar.gz
+*.h5
+*.pkl
+*.pickle
+
+# Upload directories
+uploads/
+backend-fastapi/uploads/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Environment variables
+.env
+.env.local
